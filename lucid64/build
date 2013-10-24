@@ -114,6 +114,11 @@ run_in_chroot $rootfs_dir "
   /usr/local/bin/ruby-build 1.9.3-p392 /usr
 "
 
+# install postgresql-client-9.3
+wget --quiet -O - http://apt.postgresql.org/pub/repos/apt/ACCC4CF8.asc | sudo apt-key add -
+sudo apt-get update
+sudo apt-get install postgresql-client-9.3
+
 # package up rootfs
 cd $rootfs_dir
 tar czf /vagrant/rootfs.tgz *
